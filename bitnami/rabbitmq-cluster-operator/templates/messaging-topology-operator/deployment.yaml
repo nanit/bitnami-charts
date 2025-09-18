@@ -88,12 +88,12 @@ spec:
           {{- if .Values.msgTopologyOperator.containerSecurityContext.enabled }}
           securityContext: {{- include "common.compatibility.renderSecurityContext" (dict "secContext" .Values.msgTopologyOperator.containerSecurityContext "context" $) | nindent 12 }}
           {{- end }}
-          {{- if .Values.msgTopologyOperator.command }}
-          command: {{- include "common.tplvalues.render" (dict "value" .Values.msgTopologyOperator.command "context" $) | nindent 12 }}
-          {{- else }}
-          command:
-            - manager
-          {{- end }}
+          # {{- if .Values.msgTopologyOperator.command }}
+          # command: {{- include "common.tplvalues.render" (dict "value" .Values.msgTopologyOperator.command "context" $) | nindent 12 }}
+          # {{- else }}
+          # command:
+          #   - manager
+          # {{- end }}
           {{- if .Values.msgTopologyOperator.args }}
           args: {{- include "common.tplvalues.render" (dict "value" .Values.msgTopologyOperator.args "context" $) | nindent 12 }}
           {{- else }}

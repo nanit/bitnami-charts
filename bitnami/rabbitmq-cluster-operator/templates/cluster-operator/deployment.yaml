@@ -79,12 +79,12 @@ spec:
           {{- if .Values.clusterOperator.containerSecurityContext.enabled }}
           securityContext: {{- include "common.compatibility.renderSecurityContext" (dict "secContext" .Values.clusterOperator.containerSecurityContext "context" $) | nindent 12 }}
           {{- end }}
-          {{- if .Values.clusterOperator.command }}
-          command: {{- include "common.tplvalues.render" (dict "value" .Values.clusterOperator.command "context" $) | nindent 12 }}
-          {{- else }}
-          command:
-            - manager
-          {{- end }}
+          # {{- if .Values.clusterOperator.command }}
+          # command: {{- include "common.tplvalues.render" (dict "value" .Values.clusterOperator.command "context" $) | nindent 12 }}
+          # {{- else }}
+          # command:
+          #   - manager
+          # {{- end }}
           {{- if .Values.clusterOperator.args }}
           args: {{- include "common.tplvalues.render" (dict "value" .Values.clusterOperator.args "context" $) | nindent 12 }}
           {{- else }}
